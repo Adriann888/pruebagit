@@ -1,1 +1,114 @@
-hola que tal
+No encontre la rama de desarollo. 
+
+datos primitivos: datos basicos que JavaScrip pueda manejar
+(string, number, boolean, undefiend, null, bigint, symbol)
+let nombre = "Adrian";   // string
+let edad = 25;           // number
+let activo = true;       // boolean
+let direccion;           // undefined
+let usuario = null;      // null
+
+datos no primitivos: Son estructuras que pueden contener
+varios valores o propiedades
+
+Objeto:
+
+let persona = {
+    nombre: "Adrian",
+    edad: 25
+};
+
+Aquí persona contiene varios datos:
+
+persona
+ ├── nombre → "Adrian"
+ └── edad   → 25
+
+Array (arreglo):
+
+let frutas = ["Manzana", "Pera", "Naranja"];
+
+----------------------------------------------------------------
+
+let: Forma recomendada para declarar variable
+que pueden cambiar
+let edad = 20;
+
+edad = 25;
+
+Se puede cambiar el valor pero no volver a 
+declararla misma variable dentro del mismo bloque:
+
+let nombre = "Adrian";
+
+let nombre = "Pedro"; // ❌ Error
+
+
+var: Tambien permite declarar variables pero tiene un
+comportamiento diferente respecto al alcance (scope) 
+y la redeclaracion
+
+var nombre = "Adrian";
+
+var nombre = "Pedro"; // ✅ Permitido
+
+-------------------------------------------------------------
+LA DIFERENCIA ES EL scope 
+
+let TIENE ALCANCE DE UN BLOQUE:
+
+if (true) {
+    let nombre = "Adrian";
+}
+
+console.log(nombre); // ❌ Error
+
+LA VARIBLE SOLAMENTE EXISTE DENTRO DE LAS {}
+
+var TIENE ALCANCE DE FUNCION
+
+if (true) {
+    var nombre = "Adrian";
+}
+
+console.log(nombre); // ✅ Adrian
+
+Funciona porque la declaración y el console.log() 
+están dentro del mismo bloque { }.
+
+
+--------------------------------------------------------------------
+La diferencia está en hasta dónde existe la variable.
+
+let
+
+if (true) {
+    let nombre = "Adrian";
+    console.log(nombre); // ✅ Adrian
+}
+
+Funciona porque la declaración y el console.log() están dentro del 
+mismo bloque { }.
+
+Pero:
+
+if (true) {
+    let nombre = "Adrian";
+}
+
+console.log(nombre); // ❌ Error
+
+nombre ya no existe fuera del bloque.
+
+var
+if (true) {
+    var nombre = "Adrian";
+}
+
+console.log(nombre); // ✅ Adrian
+
+Aquí var permite acceder a nombre fuera de ese bloque porque 
+var no tiene alcance de bloque.
+
+Pero esto no significa que debamos usar var. En JavaScript 
+moderno normalmente usamos let y const.
